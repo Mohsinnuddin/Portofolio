@@ -160,25 +160,3 @@ for (let i = 0; i < navigationLinks.length; i++) {
   });
 }
 
-// DOMContentLoaded event for resume page functionality
-document.addEventListener("DOMContentLoaded", () => {
-  const resumePage = document.querySelector('[data-page="resume"]');
-  const skillProgressBars = document.querySelectorAll(".skill-progress-fill");
-
-  // Function to animate progress bars
-  const animateProgressBars = () => {
-    skillProgressBars.forEach((bar) => {
-      const targetWidth = bar.getAttribute("style").match(/width:\s*(\d+)%/)[1];
-      bar.style.width = `${targetWidth}%`;
-    });
-  };
-
-  // Observe when the resume page becomes active
-  const observer = new MutationObserver(() => {
-    if (resumePage.classList.contains("active")) {
-      animateProgressBars();
-    }
-  });
-
-  observer.observe(resumePage, { attributes: true, attributeFilter: ["class"] });
-});
