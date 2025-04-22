@@ -1,26 +1,6 @@
 'use strict';
 
-// Certifications modal handling
-const certificationTriggers = document.querySelectorAll('[data-certification-trigger]');
-const certificationModal = document.querySelector('[data-certification-modal-container]');
-const certificationCloseBtn = document.querySelector('[data-certification-close-btn]');
-const certificationOverlay = document.querySelector('[data-certification-overlay]');
-const certificationImg = document.querySelector('[data-certification-img]');
 
-certificationTriggers.forEach(trigger => {
-  trigger.addEventListener('click', function(e) {
-    e.preventDefault();
-    const imgSrc = this.dataset.certificationSrc;
-    certificationImg.src = imgSrc;
-    certificationModal.classList.add('active');
-  });
-});
-
-[certificationCloseBtn, certificationOverlay].forEach(el => {
-  el.addEventListener('click', () => {
-    certificationModal.classList.remove('active');
-  });
-});
 
 // element toggle function
 const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
