@@ -819,6 +819,9 @@ main {
 .article-title { margin-bottom: 30px; }
 
 
+
+
+
 /**
  * education and experience 
  */
@@ -880,6 +883,8 @@ main {
   font-weight: var(--fw-300);
   line-height: 1.6;
 }
+
+
 
 
 /**
