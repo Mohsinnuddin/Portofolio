@@ -36,17 +36,24 @@ const AcademicProjectsModalFunc = function () {
 // add click event to all modal items
 for (let i = 0; i < AcademicProjectsItem.length; i++) {
   AcademicProjectsItem[i].addEventListener("click", function () {
+    const projectTitle = this.querySelector("[data-AcademicProjects-title]").innerHTML;
+    const projectText = this.querySelector("[data-AcademicProjects-text]").innerHTML;
+    const projectAvatar = this.querySelector("[data-AcademicProjects-avatar]");
 
-    modalImg.src = this.querySelector("[data-AcademicProjects-avatar]").src;
-    modalImg.alt = this.querySelector("[data-AcademicProjects-avatar]").alt;
-    modalTitle.innerHTML = this.querySelector("[data-AcademicProjects-title]").innerHTML;
+    modalImg.src = projectAvatar.src;
+    modalImg.alt = projectAvatar.alt;
+    modalTitle.innerHTML = projectTitle;
+    modalText.innerHTML = `<p style="color: var(--white-2);">${projectText}</p>`;
 
-    modalText.innerHTML = `<p style="color: var(--white-2);">
-      ${this.querySelector("[data-AcademicProjects-text]").innerHTML}
-    </p>`;
+    // Update the "View Here" link based on the project
+    const viewHereLink = document.querySelector(".projectview-button");
+    if (projectTitle.includes("Gym Trainer")) {
+      viewHereLink.href = "https://github.com/Mohsinnuddin/Gym-Trainer-App";
+    } else if (projectTitle.includes("Tourism Management")) {
+      viewHereLink.href = "https://github.com/Mohsinnuddin/Tourism-Management-System";
+    }
 
     AcademicProjectsModalFunc();
-
   });
 }
 
@@ -159,4 +166,37 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+// Certification modal variables
+const certificationModalContainer = document.querySelector("[data-certification-modal-container]");
+const certificationModal = document.querySelector(".certification-modal");
+const certificationOverlay = document.querySelector("[data-certification-overlay]");
+const certificationCloseBtn = document.querySelector("[data-certification-close-btn]");
+const certificationBtn = document.querySelector("[data-certification-btn]");
+
+// Certification modal function
+const certificationModalFunc = function () {
+  certificationModalContainer.classList.toggle("active");
+  certificationModal.classList.toggle("active");
+  certificationOverlay.classList.toggle("active");
+  document.body.classList.toggle("active");
+};
+
+// Add click event to certification button
+certificationBtn.addEventListener("click", function () {
+  const certificationImg = document.querySelector("[data-certification-img]");
+  
+  // Set the image source based on the current certification
+  if (certificationImg.src.includes("data-analyst-cert")) {
+    certificationImg.src = "./assets/images/java-cert.jpg";
+  } else {
+    certificationImg.src = "./assets/images/data-analyst-cert.jpg";
+  }
+  
+  certificationModalFunc();
+});
+
+// Add click event to modal close button and overlay
+certificationCloseBtn.addEventListener("click", certificationModalFunc);
+certificationOverlay.addEventListener("click", certificationModalFunc);
 

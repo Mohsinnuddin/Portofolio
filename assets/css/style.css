@@ -1626,16 +1626,28 @@ textarea.form-input::-webkit-resizer { display: none; }
 }
 
 .cert-button {
-  display: inline-block;
+  display: none; /* Hide by default */
   margin-top: 12px;
   padding: 10px 20px;
-  background-color: #111110; /* yellow */
+  background-color: #111110;
   color: white;
   text-decoration: none;
-  border-radius: 25px; /* fully rounded */
+  border-radius: 25px;
   font-weight: bold;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* subtle lift */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease, transform 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+/* Show button only in the modal */
+.AcademicProjects-modal .cert-button {
+  display: inline-block;
+}
+
+.cert-button:hover {
+  background-color: #080808;
+  transform: translateY(-2px);
 }
 
 .projectview-button {
