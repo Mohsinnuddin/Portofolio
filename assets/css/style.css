@@ -1789,6 +1789,19 @@ textarea.form-input::-webkit-resizer { display: none; }
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+	
+.projectview-button {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 20px;
+  background-color: #111110; /* yellow */
+  color: white;
+  text-decoration: none;
+  border-radius: 25px; /* fully rounded */
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* subtle lift */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
 
   .AcademicProjects .service-item-textTTMS {
     color: var(--light-gray);
