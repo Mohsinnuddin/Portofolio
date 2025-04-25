@@ -744,101 +744,139 @@
           <ul class="project-list">
 
             <li class="project-item  active" data-filter-item data-category="looker">
-              <a href="#">
+              <a href="#" data-project-item>
 
                 <figure class="project-img">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
 
-                  <img src="./assets/images/project titanic looker.jpg" alt="report" loading="lazy">
+                  <img src="./assets/images/project titanic looker.jpg" alt="report" loading="lazy" data-project-img>
                 </figure>
 
-                <h3 class="project-title">Titanic Analysis</h3>
+                <h3 class="project-title" data-project-title>Titanic Analysis</h3>
 
-                <p class="project-category">Looker</p>
+                <p class="project-category" data-project-category>Looker</p>
 
               </a>
             </li>
 
             <li class="project-item  active" data-filter-item data-category="looker">
-              <a href="#">
+              <a href="#" data-project-item>
 
                 <figure class="project-img">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
 
-                  <img src="./assets/images/project sales looker.jpg" alt="report" loading="lazy">
+                  <img src="./assets/images/project sales looker.jpg" alt="report" loading="lazy" data-project-img>
                 </figure>
 
-                <h3 class="project-title">Sales Analysis</h3>
+                <h3 class="project-title" data-project-title>Sales Analysis</h3>
 
-                <p class="project-category">Looker</p>
+                <p class="project-category" data-project-category>Looker</p>
 
               </a>
             </li>
 
             <li class="project-item  active" data-filter-item data-category="alteryx">
-              <a href="#">
+              <a href="#" data-project-item>
 
                 <figure class="project-img">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
 
-                  <img src="./assets/images/project cohort Analysis Alteryx.jpg" alt="Cohort Analysis" loading="lazy">
+                  <img src="./assets/images/project cohort Analysis Alteryx.jpg" alt="Cohort Analysis" loading="lazy" data-project-img>
                 </figure>
 
-                <h3 class="project-title">Cohort Analysis</h3>
+                <h3 class="project-title" data-project-title>Cohort Analysis</h3>
 
-                <p class="project-category">Alteryx</p>
+                <p class="project-category" data-project-category>Alteryx</p>
 
               </a>
             </li>
 
 
             <li class="project-item  active" data-filter-item data-category="alteryx">
-              <a href="#">
+              <a href="#" data-project-item>
 
                 <figure class="project-img">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
 
-                  <img src="./assets/images/project replicate tables Alteryx.jpg" alt="Replicate Tables" loading="lazy">
+                  <img src="./assets/images/project replicate tables Alteryx.jpg" alt="Replicate Tables" loading="lazy" data-project-img>
                 </figure>
 
-                <h3 class="project-title">Replicate Tables</h3>
+                <h3 class="project-title" data-project-title>Replicate Tables</h3>
 
-                <p class="project-category">Alteryx</p>
+                <p class="project-category" data-project-category>Alteryx</p>
 
               </a>
             </li>
 
             <li class="project-item  active" data-filter-item data-category="alteryx">
-              <a href="#">
+              <a href="#" data-project-item>
 
                 <figure class="project-img">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
 
-                  <img src="./assets/images/project replicate tables macro Alteryx.jpg" alt="Replicate Tables macro" loading="lazy">
+                  <img src="./assets/images/project replicate tables macro Alteryx.jpg" alt="Replicate Tables macro" loading="lazy" data-project-img>
                 </figure>
 
-                <h3 class="project-title">Replicate Tables Macro</h3>
+                <h3 class="project-title" data-project-title>Replicate Tables Macro</h3>
 
-                <p class="project-category">Alteryx</p>
+                <p class="project-category" data-project-category>Alteryx</p>
 
               </a>
             </li>
-
-            
 
           </ul>
 
         </section>
+
+        <!--
+          - Portfolio Projects modal
+        -->
+        
+        <div class="modal-container" data-project-modal-container>
+        
+          <div class="overlay" data-project-overlay></div>
+        
+          <section class="project-modal">
+        
+            <button class="modal-close-btn" data-project-modal-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+        
+            <div class="modal-img-wrapper">
+              <figure class="modal-avatar-box">
+                <img src="./assets/images/avatar-1.png" alt="Project Image" width="80" data-project-modal-img>
+              </figure>
+        
+              <img src="./assets/images/icon-quote.svg" alt="quote icon">
+            </div>
+            
+        
+            <div class="modal-content">
+        
+              <h4 class="h3 modal-title" data-project-modal-title>Project Title</h4>
+        
+              <div data-project-modal-text>
+                <p>
+                  Project description will go here.
+                </p>
+              </div>
+              <a href="#" target="_blank" class="projectview-button" data-project-modal-link>View Here</a>
+            </div>
+        
+          </section>
+        
+        </div>
+        <!-- Portfolio Projects modal end -->
 
       </article>
 
@@ -1114,6 +1152,84 @@
       if (tourismManagementLink) {
         tourismManagementLink.href = "https://github.com/Mohsinnuddin/Tourism-Management-System";
       }
+
+      // Portfolio Project Modal Functionality
+      const projectModalContainer = document.querySelector("[data-project-modal-container]");
+      const projectModalCloseBtn = document.querySelector("[data-project-modal-close-btn]");
+      const projectOverlay = document.querySelector("[data-project-overlay]");
+      const projectItems = document.querySelectorAll("[data-project-item]");
+
+      // Project modal variables
+      const projectModalImg = document.querySelector("[data-project-modal-img]");
+      const projectModalTitle = document.querySelector("[data-project-modal-title]");
+      const projectModalText = document.querySelector("[data-project-modal-text]");
+      const projectModalLink = document.querySelector("[data-project-modal-link]");
+
+      // Project modal default state
+      let isProjectModalOpen = false;
+
+      // Project modal toggle function
+      const toggleProjectModal = () => {
+        if (isProjectModalOpen === false) {
+          projectModalContainer.classList.add("active");
+          isProjectModalOpen = true;
+        } else {
+          projectModalContainer.classList.remove("active");
+          isProjectModalOpen = false;
+        }
+      };
+
+      // Add click event to all project items
+      projectItems.forEach((item) => {
+        item.addEventListener("click", (e) => {
+          e.preventDefault();
+          
+          const projectImg = item.querySelector("[data-project-img]").src;
+          const projectTitle = item.querySelector("[data-project-title]").textContent;
+          const projectCategory = item.querySelector("[data-project-category]").textContent;
+          
+          // Update modal content
+          projectModalImg.src = projectImg;
+          projectModalTitle.textContent = projectTitle;
+          
+          // Set project description based on category
+          let projectDescription = "";
+          let projectLink = "#";
+          
+          switch(projectCategory) {
+            case "Looker":
+              if (projectTitle === "Titanic Analysis") {
+                projectDescription = "A comprehensive analysis of the Titanic dataset using Looker Studio, showcasing passenger demographics, survival rates, and key insights.";
+                projectLink = "https://lookerstudio.google.com/reporting/titanic-analysis";
+              } else if (projectTitle === "Sales Analysis") {
+                projectDescription = "An interactive sales dashboard created in Looker Studio, providing insights into sales performance, trends, and key metrics.";
+                projectLink = "https://lookerstudio.google.com/reporting/sales-analysis";
+              }
+              break;
+            case "Alteryx":
+              if (projectTitle === "Cohort Analysis") {
+                projectDescription = "A detailed cohort analysis workflow in Alteryx, analyzing customer retention and behavior patterns over time.";
+                projectLink = "https://github.com/Mohsinnuddin/Cohort-Analysis";
+              } else if (projectTitle === "Replicate Tables") {
+                projectDescription = "An Alteryx workflow for efficiently replicating and transforming database tables with data validation.";
+                projectLink = "https://github.com/Mohsinnuddin/Replicate-Tables";
+              } else if (projectTitle === "Replicate Tables Macro") {
+                projectDescription = "A reusable Alteryx macro for automating table replication processes with customizable parameters.";
+                projectLink = "https://github.com/Mohsinnuddin/Replicate-Tables-Macro";
+              }
+              break;
+          }
+          
+          projectModalText.querySelector("p").textContent = projectDescription;
+          projectModalLink.href = projectLink;
+          
+          toggleProjectModal();
+        });
+      });
+
+      // Close project modal
+      projectModalCloseBtn.addEventListener("click", toggleProjectModal);
+      projectOverlay.addEventListener("click", toggleProjectModal);
     });
   </script>
 
