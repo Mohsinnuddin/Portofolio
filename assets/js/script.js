@@ -2,7 +2,7 @@
 
 
 
-// element toggle function
+// element toggle functions
 const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
 
 
