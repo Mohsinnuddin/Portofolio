@@ -2089,3 +2089,205 @@ textarea.form-input::-webkit-resizer { display: none; }
   .timeline-text { max-width: 700px; }
 
 }
+
+/* Project Modal Styles */
+.project-modal {
+  position: relative;
+  max-width: 800px;
+  width: 90%;
+  background: var(--bg-black-50);
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.modal-img-wrapper {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.modal-avatar-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-avatar-box img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .project-modal {
+    width: 95%;
+    padding: 15px;
+  }
+  
+  .modal-avatar-box img {
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-modal {
+    width: 100%;
+    padding: 10px;
+  }
+  
+  .modal-avatar-box img {
+    max-height: 250px;
+  }
+}
+
+/* Portfolio Project Modal Styles */
+.portfolio-modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  z-index: 20;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.portfolio-modal-container.active {
+  pointer-events: all;
+  visibility: visible;
+}
+
+.portfolio-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: hsl(0, 0%, 5%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 1;
+  transition: var(--transition-1);
+}
+
+.portfolio-modal-overlay.active {
+  opacity: 0.8;
+  visibility: visible;
+  pointer-events: all;
+}
+
+.portfolio-modal {
+  background: var(--eerie-black-2);
+  position: relative;
+  padding: 15px;
+  margin: 15px 12px;
+  border: 1px solid var(--jet);
+  border-radius: 14px;
+  box-shadow: var(--shadow-5);
+  transform: scale(1.2);
+  opacity: 0;
+  transition: var(--transition-1);
+  z-index: 2;
+  max-width: 800px;
+  width: 90%;
+}
+
+.portfolio-modal-container.active .portfolio-modal {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.portfolio-modal-img-wrapper {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.portfolio-modal-avatar-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.portfolio-modal-avatar-box img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 14px;
+  object-fit: contain;
+  max-height: 500px;
+}
+
+.portfolio-modal-content {
+  color: var(--light-gray);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-300);
+  line-height: 1.6;
+}
+
+.portfolio-modal-title {
+  color: var(--white-2);
+  margin-bottom: 15px;
+}
+
+.portfolio-view-button {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 20px;
+  background-color: var(--onyx);
+  color: var(--white-2);
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: var(--fw-500);
+  box-shadow: var(--shadow-2);
+  transition: var(--transition-1);
+}
+
+.portfolio-view-button:hover {
+  background-color: var(--jet);
+  transform: translateY(-2px);
+}
+
+@media (min-width: 580px) {
+  .portfolio-modal {
+    padding: 30px;
+    border-radius: 20px;
+  }
+  
+  .portfolio-modal-avatar-box img {
+    max-height: 600px;
+  }
+}
+
+@media (min-width: 768px) {
+  .portfolio-modal {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 25px;
+    max-width: 900px;
+  }
+  
+  .portfolio-modal-img-wrapper {
+    flex: 1.2;
+    margin-bottom: 0;
+  }
+  
+  .portfolio-modal-content {
+    flex: 0.8;
+  }
+}
+
+@media (min-width: 1024px) {
+  .portfolio-modal-avatar-box img {
+    max-height: 700px;
+  }
+}
