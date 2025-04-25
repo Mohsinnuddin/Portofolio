@@ -12,7 +12,7 @@
 
 
 /*-----------------------------------*\
-  #CUSTOM PROPERTYY
+  #CUSTOM PROPERTY
 \*-----------------------------------*/
 
 :root {
@@ -21,7 +21,7 @@
    * colors
    */
 
-  /* gradient */
+  /* gradients  */
 
   --bg-gradient-onyx: linear-gradient(
     to bottom right, 
