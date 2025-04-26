@@ -21,53 +21,59 @@
    * colors
    */
 
-  /* gradient */
+  /* Cyberpunk (Bold) Palette */
+  --background: #1F1B24;
+  --accent: #FF0266;
+  --secondary-accent: #00E5FF;
+  --text-color: #FFFFFF;
+  --accent-filter: invert(30%) sepia(100%) saturate(10000%) hue-rotate(330deg) brightness(100%) contrast(100%);
+        
 
+  /* gradient */
   --bg-gradient-onyx: linear-gradient(
     to bottom right, 
-    hsl(240, 1%, 25%) 3%, 
-    hsl(0, 0%, 19%) 97%
+    #2a223a 3%, 
+    #1F1B24 97%
   );
   --bg-gradient-jet: linear-gradient(
     to bottom right, 
-    hsla(240, 1%, 18%, 0.251) 0%, 
-    hsla(240, 2%, 11%, 0) 100%
-  ), hsl(240, 2%, 13%);
+    rgba(0,229,255,0.15) 0%, 
+    rgba(31,27,36,0) 100%
+  ), #1F1B24;
   --bg-gradient-yellow-1: linear-gradient(
     to bottom right, 
-    hsl(45, 100%, 71%) 0%, 
-    hsla(36, 100%, 69%, 0) 50%
+    #FF0266 0%, 
+    rgba(255,2,102,0) 50%
   );
   --bg-gradient-yellow-2: linear-gradient(
     135deg, 
-    hsla(45, 100%, 71%, 0.251) 0%, 
-    hsla(35, 100%, 68%, 0) 59.86%
-  ), hsl(240, 2%, 13%);
+    rgba(255,2,102,0.25) 0%, 
+    rgba(0,229,255,0) 59.86%
+  ), #1F1B24;
   --border-gradient-onyx: linear-gradient(
     to bottom right, 
-    hsl(0, 0%, 25%) 0%, 
-    hsla(0, 0%, 25%, 0) 50%
+    #00E5FF 0%, 
+    rgba(0,229,255,0) 50%
   );
   --text-gradient-yellow: linear-gradient(
     to right, 
-    hsl(45, 100%, 72%), 
-    hsl(35, 100%, 68%)
+    #FF0266, 
+    #00E5FF
   );
 
   /* solid */
-
-  --jet: hsl(0, 0%, 22%);
-  --onyx: hsl(240, 1%, 17%);
-  --eerie-black-1: hsl(240, 2%, 13%);
-  --eerie-black-2: hsl(240, 2%, 12%);
-  --smoky-black: hsl(0, 0%, 7%);
-  --white-1: hsl(0, 0%, 100%);
-  --white-2: hsl(0, 0%, 98%);
-  --orange-yellow-crayola: hsl(45, 100%, 72%);
-  --vegas-gold: hsl(45, 54%, 58%);
-  --light-gray: hsl(0, 0%, 84%);
-  --light-gray-70: hsla(0, 0%, 84%, 0.7);
-  --bittersweet-shimmer: hsl(0, 43%, 51%);
+  --jet: #00E5FF;
+  --onyx: #1F1B24;
+  --eerie-black-1: #1F1B24;
+  --eerie-black-2: #231c2e;
+  --smoky-black: #1F1B24;
+  --white-1: #FFFFFF;
+  --white-2: #FFFFFF;
+  --orange-yellow-crayola: #FF0266;
+  --vegas-gold: #00E5FF;
+  --light-gray: #FFFFFF;
+  --light-gray-70: rgba(255,255,255,0.7);
+  --bittersweet-shimmer: #FF0266;
 
   /**
    * typography
@@ -96,11 +102,11 @@
    * shadow
    */
   
-  --shadow-1: -4px 8px 24px hsla(0, 0%, 0%, 0.25);
-  --shadow-2: 0 16px 30px hsla(0, 0%, 0%, 0.25);
-  --shadow-3: 0 16px 40px hsla(0, 0%, 0%, 0.25);
-  --shadow-4: 0 25px 50px hsla(0, 0%, 0%, 0.15);
-  --shadow-5: 0 24px 80px hsla(0, 0%, 0%, 0.25);
+  --shadow-1: -4px 8px 24px rgba(0,229,255,0.15);
+  --shadow-2: 0 16px 30px rgba(255,2,102,0.15);
+  --shadow-3: 0 16px 40px rgba(0,229,255,0.15);
+  --shadow-4: 0 25px 50px rgba(255,2,102,0.10);
+  --shadow-5: 0 24px 80px rgba(0,229,255,0.15);
 
   /**
    * transition
@@ -1255,9 +1261,10 @@ textarea.form-input::-webkit-resizer { display: none; }
   border-radius: 14px;
   font-size: var(--fs-6);
   text-transform: capitalize;
-  box-shadow: var(--shadow-3);
+  box-shadow: var(--shadow-2);
   z-index: 1;
   transition: var(--transition-1);
+  
 }
 
 .form-btn::before {
@@ -1272,18 +1279,28 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 .form-btn ion-icon { font-size: 16px; }
 
-.form-btn:hover { background: var(--bg-gradient-yellow-1); }
+.form-btn:hover { 
+  background: var(--bg-gradient-yellow-1);
+  transform: translateY(-2px);
+}
 
-.form-btn:hover::before { background: var(--bg-gradient-yellow-2); }
+.form-btn:hover::before { 
+  background: var(--bg-gradient-yellow-2);
+}
 
 .form-btn:disabled {
   opacity: 0.7;
   cursor: not-allowed;
 }
 
-.form-btn:disabled:hover { background: var(--border-gradient-onyx); }
+.form-btn:disabled:hover { 
+  background: var(--border-gradient-onyx);
+  transform: none;
+}
 
-.form-btn:disabled:hover::before { background: var(--bg-gradient-jet); }
+.form-btn:disabled:hover::before { 
+  background: var(--bg-gradient-jet);
+}
 
 
 
@@ -1554,7 +1571,7 @@ textarea.form-input::-webkit-resizer { display: none; }
     margin-bottom: 0;
   }
 
-  .modal-avatar-box img { width: 65px; }
+  .modal-avatar-box img { width: 100px; }
 
   .modal-img-wrapper > img {
     display: block;
@@ -1632,47 +1649,52 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 }
 
-.cert-button {
-  display: none; /* Hide by default */
+.cert-button,
+.projectview-button,
+.portfolio-view-button {
+  display: inline-block;
   margin-top: 12px;
   padding: 10px 20px;
-  background-color: #111110;
-  color: white;
+  background: var(--border-gradient-onyx);
+  color: var(--orange-yellow-crayola);
   text-decoration: none;
-  border-radius: 25px;
-  font-weight: bold;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  border: none;
-  cursor: pointer;
+  border-radius: 14px;
+  font-size: var(--fs-6);
+  font-weight: var(--fw-500);
+  box-shadow: var(--shadow-2);
+  transition: var(--transition-1);
+  z-index: 1;
+  position: relative;
+}
+
+.cert-button::before,
+.projectview-button::before,
+.portfolio-view-button::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: var(--bg-gradient-jet);
+  border-radius: inherit;
+  z-index: -1;
+  transition: var(--transition-1);
+}
+
+.cert-button:hover,
+.projectview-button:hover,
+.portfolio-view-button:hover {
+  background: var(--bg-gradient-yellow-1);
+  transform: translateY(-2px);
+}
+
+.cert-button:hover::before,
+.projectview-button:hover::before,
+.portfolio-view-button:hover::before {
+  background: var(--bg-gradient-yellow-2);
 }
 
 /* Show button only in the modal */
 .AcademicProjects-modal .cert-button {
   display: inline-block;
-}
-
-.cert-button:hover {
-  background-color: #080808;
-  transform: translateY(-2px);
-}
-
-.projectview-button {
-  display: inline-block;
-  margin-top: 12px;
-  padding: 10px 20px;
-  background-color: #111110; /* yellow */
-  color: white;
-  text-decoration: none;
-  border-radius: 25px; /* fully rounded */
-  font-weight: bold;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* subtle lift */
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.cert-button:hover {
-  background-color: #080808; /* darker yellow */
-  transform: translateY(-2px); /* slight hover lift */
 }
 
 
@@ -1726,7 +1748,7 @@ textarea.form-input::-webkit-resizer { display: none; }
     max-width: 680px;
   }
 
-  .modal-avatar-box img { width: 80px; }
+  .modal-avatar-box img { width: 150px; }
 
 
 
