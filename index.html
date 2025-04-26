@@ -967,18 +967,10 @@
       const projectModalText = document.querySelector("[data-project-modal-text]");
       const projectModalLink = document.querySelector("[data-project-modal-link]");
 
-      // Project modal default state
-      let isProjectModalOpen = false;
-
       // Project modal toggle function
       const toggleProjectModal = () => {
-        if (isProjectModalOpen === false) {
-          projectModalContainer.classList.add("active");
-          isProjectModalOpen = true;
-        } else {
-          projectModalContainer.classList.remove("active");
-          isProjectModalOpen = false;
-        }
+        projectModalContainer.classList.toggle("active");
+        projectOverlay.classList.toggle("active");
       };
 
       // Add click event to all project items
