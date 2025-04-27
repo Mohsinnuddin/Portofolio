@@ -15,7 +15,7 @@
   <!--
     - custom css link
   -->
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css">
 
   <!--
     - google font link
@@ -42,7 +42,7 @@
       <div class="sidebar-info">
 
         <figure class="avatar-box">
-          <img src="./assets/images/my-avatar.png" alt="Mohammed Mohsin Uddin" width="80">
+          <img src="./assets/images/my-avatar.png" alt="Mohammed Mohsin Uddin" width="40">
         </figure>
 
         <div class="info-content">
@@ -117,19 +117,19 @@
 
           <li class="social-item">
             <a href="" class="social-link">
-              <ion-icon name="logo-linkedin"></ion-icon>
+              <ion-icon name="logo-linkedin" style="filter: var(--accent-filter);"></ion-icon>
             </a>
           </li>
 
           <li class="social-item">
             <a href="https://www.linkedin.com/in/mohammed-mohsin-uddin-7830a9315/" class="social-link">
-              <ion-icon name="logo-github"></ion-icon>
+              <ion-icon name="logo-github" style="filter: var(--accent-filter);"></ion-icon>
             </a>
           </li>
 
           <li class="social-item">
             <a href="https://www.instagram.com/_mohsin.uddin_" class="social-link">
-              <ion-icon name="logo-instagram"></ion-icon>
+              <ion-icon name="logo-instagram" style="filter: var(--accent-filter);"></ion-icon>
             </a>
           </li>
 
@@ -481,6 +481,13 @@
           <h2 class="h2 article-title">Resume</h2>
         </header>
 
+        <div class="download-resume">
+          <a href="./assets/Mohsin resume.pdf" download class="download-btn">
+            <ion-icon name="download-outline"></ion-icon>
+            <span>Download Resume</span>
+          </a>
+        </div>
+
         <section class="timeline">
 
           <div class="title-wrapper">
@@ -618,7 +625,7 @@
 
           <ul class="skills-list content-card">
 
-            <li class="skills-item">
+            <li class="skills-item" data-value="85">
 
               <div class="title-wrapper">
                 <h5 class="h5">SQL</h5>
@@ -626,12 +633,12 @@
               </div>
 
               <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 85%;"></div>
+                <div class="skill-progress-fill"></div>
               </div>
 
             </li>
 
-            <li class="skills-item">
+            <li class="skills-item" data-value="70">
 
               <div class="title-wrapper">
                 <h5 class="h5">looker Studio</h5>
@@ -639,12 +646,12 @@
               </div>
 
               <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 70%;"></div>
+                <div class="skill-progress-fill"></div>
               </div>
 
             </li>
 
-            <li class="skills-item">
+            <li class="skills-item" data-value="50">
 
               <div class="title-wrapper">
                 <h5 class="h5">Python</h5>
@@ -652,14 +659,14 @@
               </div>
 
               <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 50%;"></div>
+                <div class="skill-progress-fill"></div>
               </div>
 
             </li>
 
             
 
-            <li class="skills-item">
+            <li class="skills-item" data-value="40">
 
               <div class="title-wrapper">
                 <h5 class="h5">Java</h5>
@@ -667,7 +674,7 @@
               </div>
 
               <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 40%;"></div>
+                <div class="skill-progress-fill"></div>
               </div>
 
             </li>
@@ -891,7 +898,7 @@
         <section class="mapbox" data-mapbox>
           <figure>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d199666.5651251294!2d-121.58334177520186!3d38.56165006739519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809ac672b28397f9%3A0x921f6aaa74197fdb!2sSacramento%2C%20CA%2C%20USA!5e0!3m2!1sen!2sbd!4v1647608789441!5m2!1sen!2sbd"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15282225.79979123!2d73.7250245393691!3d20.750301298393563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1647608789441!5m2!1sen!2sin"
               width="400" height="300" loading="lazy"></iframe>
           </figure>
         </section>
@@ -900,17 +907,31 @@
 
           <h3 class="h3 form-title">Contact Form</h3>
 
-          <form action="#" class="form" data-form>
+          <div class="success-message" style="display: none;">
+            <ion-icon name="checkmark-circle" style="color: var(--orange-yellow-crayola); font-size: 48px;"></ion-icon>
+            <p>Thank you! Your message has been sent successfully.</p>
+          </div>
+
+          <form action="https://formsubmit.co/mohsinnuddin@gmail.com" method="POST" class="form" data-form>
+            <input type="hidden" name="_next" value="https://mohsinnuddin.github.io/portfolio/#contact">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="box">
 
             <div class="input-wrapper">
-              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input
+                pattern="[A-Za-z\s]{3,}" title="Please enter a valid name (minimum 3 characters, letters only)">
+              <span class="validation-message">Please enter a valid name (minimum 3 characters, letters only)</span>
 
-              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address">
+              <span class="validation-message">Please enter a valid email address</span>
             </div>
 
-            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input
+              minlength="10" title="Please enter a message (minimum 10 characters)"></textarea>
+            <span class="validation-message">Please enter a message (minimum 10 characters)</span>
 
-            <button class="form-btn" type="submit" disabled data-form-btn>
+            <button class="form-btn" type="submit" data-form-btn>
               <ion-icon name="paper-plane"></ion-icon>
               <span>Send Message</span>
             </button>
@@ -990,10 +1011,10 @@
             case "Looker Studio":
               if (projectTitle === "Titanic Analysis") {
                 projectDescription = "A comprehensive analysis of the Titanic dataset using Looker Studio, showcasing passenger demographics, survival rates, and key insights.";
-                projectLink = "https://lookerstudio.google.com/reporting/titanic-analysis";
+                projectLink = "https://lookerstudio.google.com/u/0/reporting/4589ae81-32f8-4d3a-9c15-144962aa6bec/page/THlwE";
               } else if (projectTitle === "Sales Analysis") {
                 projectDescription = "An interactive sales dashboard created in Looker Studio, providing insights into sales performance, trends, and key metrics.";
-                projectLink = "https://lookerstudio.google.com/reporting/sales-analysis";
+                projectLink = "https://lookerstudio.google.com/u/1/reporting/e516c71c-ef44-4798-9706-0b65a634be3b/page/oIpyE";
               }
               break;
             case "Alteryx":

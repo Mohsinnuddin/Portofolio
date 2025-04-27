@@ -291,3 +291,16 @@ document.addEventListener("DOMContentLoaded", () => {
   projectModalCloseBtn.addEventListener("click", toggleProjectModal);
   projectOverlay.addEventListener("click", toggleProjectModal);
 });
+
+// Check if we're returning from a form submission
+document.addEventListener('DOMContentLoaded', function() {
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('success') === 'true') {
+    const successMessage = document.querySelector('.success-message');
+    const form = document.querySelector('.form');
+    if (successMessage && form) {
+      successMessage.classList.add('show');
+      form.classList.add('hide');
+    }
+  }
+});
