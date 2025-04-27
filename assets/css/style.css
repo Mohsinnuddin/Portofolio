@@ -933,29 +933,14 @@ main {
 }
 
 .skills-item .skill-progress-fill {
-  background: var(--text-gradient-yellow);
+  background: var(--accent);
   height: 100%;
   border-radius: inherit;
   width: 0;
   transition: width 1s ease-in-out;
 }
 
-/* Set widths based on data values */
-.skills-item[data-value="85"] .skill-progress-fill {
-  width: 85%;
-}
 
-.skills-item[data-value="70"] .skill-progress-fill {
-  width: 70%;
-}
-
-.skills-item[data-value="50"] .skill-progress-fill {
-  width: 50%;
-}
-
-.skills-item[data-value="40"] .skill-progress-fill {
-  width: 40%;
-}
 
 
 

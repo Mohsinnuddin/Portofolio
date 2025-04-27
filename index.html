@@ -1043,7 +1043,18 @@
       projectOverlay.addEventListener("click", toggleProjectModal);
     });
   </script>
-
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const skillItems = document.querySelectorAll('.skills-item');
+      skillItems.forEach(function(item) {
+        const value = item.getAttribute('data-value');
+        const fill = item.querySelector('.skill-progress-fill');
+        if (fill && value) {
+          fill.style.width = value + '%';
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>
